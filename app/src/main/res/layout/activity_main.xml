@@ -11,7 +11,7 @@
         android:id="@+id/tvPergunta"
         android:layout_width="304dp"
         android:layout_height="96dp"
-        android:text="Pergunta"
+        android:text=""
         android:textAlignment="center"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
