@@ -3,7 +3,9 @@ package com.example.quizgeografia;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -11,8 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout tela;
     private TextView pergunta;
-
-
+    private int contadorSwaipe = 0;
 
 
     @Override
@@ -21,10 +22,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tela = findViewById(R.id.telaToda);
         pergunta = findViewById(R.id.tvPergunta);
-
+        final Intent intent = new Intent(this, telaFinal.class);
+        Dados.populaMatriz();
+        //startActivity(intent);
         //Exibe oque há no array indice '0'
         pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
-
 
 
         tela.setOnTouchListener(new OnSwipeTouchListener(this) {
@@ -32,25 +34,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwipeBottom() {
                 super.onSwipeBottom();
-                pergunta.setText("Para Baixo!!");
+                if (contadorSwaipe == 5) {
+                    startActivity(intent);
+                } else {
+                    contadorSwaipe++;
+                    Dados.insereResposta(Pergunta.contador, false);
+                }
+
+
             }
 
 
             @Override
             public void onSwipeTop() {
                 super.onSwipeTop();
-                pergunta.setText("Para Cima!!");
+                if (contadorSwaipe == 5) {
+                    startActivity(intent);
+                } else {
+                    contadorSwaipe++;
+                    Dados.insereResposta(Pergunta.contador, true);
+                }
             }
 
             @Override
             public void onSwipeLeft() {
                 super.onSwipeLeft();
-                if(Pergunta.contador == 0){
+                if (Pergunta.contador == 0) {
                     Pergunta.contador = Pergunta.retornaTamanhoArray();
                     pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
 
-                }else{
-                    Pergunta.contador = (Pergunta.contador-1);
+                } else {
+                    Pergunta.contador = (Pergunta.contador - 1);
                     pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
                 }
 
@@ -59,12 +73,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwipeRight() {
                 super.onSwipeRight();
-                if(Pergunta.contador == Pergunta.retornaTamanhoArray()){
+                if (Pergunta.contador == Pergunta.retornaTamanhoArray()) {
                     Pergunta.contador = 0;
                     pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
 
-                }else{
-                    Pergunta.contador = (Pergunta.contador+1);
+                } else {
+                    Pergunta.contador = (Pergunta.contador + 1);
                     pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
                 }
 
