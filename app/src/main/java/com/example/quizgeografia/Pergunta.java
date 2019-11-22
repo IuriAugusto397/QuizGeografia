@@ -13,11 +13,11 @@ public class Pergunta {
     public static ArrayList<String> retornaArray() {
         final ArrayList<String> question = new ArrayList();
 
-        question.add("É verdade que a capital da inglaterra é londres? 1");
-        question.add("É verdade que a america do sul tem grandes placas tectónicas? 2 ");
-        question.add("É verdade que Moscou foi atingida por uma bomba nuclear nos anos 60 ? 3");
-        question.add("É verdade que a Floresta amazonica é presente em 9 paises ? 4 ");
-        question.add("É verdade que o brasil fica no lado oriental do globo ? 5");
+        question.add("1 - É verdade que a capital da inglaterra é londres?");
+        question.add("2 - É verdade que a america do sul tem grandes placas tectónicas?");
+        question.add("3 - É verdade que Moscou foi atingida por uma bomba nuclear nos anos 60 ?");
+        question.add("4 - É verdade que a Floresta amazonica é presente em 9 paises ?");
+        question.add("5 - É verdade que o brasil fica no lado oriental do globo ?");
 
         return question;
     }
