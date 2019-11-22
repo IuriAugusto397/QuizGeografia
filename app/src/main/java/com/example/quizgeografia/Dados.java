@@ -2,9 +2,18 @@ package com.example.quizgeografia;
 
 public class Dados {
 
-    public static boolean [][] matriz = new boolean[2][5];
+    public static boolean[][] matriz = new boolean[2][5];
+    public static boolean[] controleRespostas = new boolean[5];
 
-    public static void populaMatriz(){
+    public static void populaControle() {
+        controleRespostas[0] = false;
+        controleRespostas[1] = false;
+        controleRespostas[2] = false;
+        controleRespostas[3] = false;
+        controleRespostas[4] = false;
+    }
+
+    public static void populaMatriz() {
         matriz[0][0] = true;
         matriz[0][1] = true;
         matriz[0][2] = false;
@@ -12,19 +21,19 @@ public class Dados {
         matriz[0][4] = false;
     }
 
-    public static void insereResposta(int indice, boolean valor){
-        matriz [1][indice] = valor;
+    public static void insereResposta(int indice, boolean valor) {
+        matriz[1][indice] = valor;
     }
 
-    public static String contaAcertos(){
-     int acertos = 0;
-     for(int i = 0; i <= 4; i++){
-         if(matriz[1][i] == matriz[0][i]){
-             acertos++;
-         }
-     }
+    public static String contaAcertos() {
+        int acertos = 0;
+        for (int i = 0; i <= 4; i++) {
+            if (matriz[1][i] == matriz[0][i]) {
+                acertos++;
+            }
+        }
 
-     return Integer.toString(acertos);
+        return Integer.toString(acertos);
     }
 
 }

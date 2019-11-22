@@ -6,11 +6,11 @@ public class Pergunta {
 
     public static int contador = 0;
 
-    public static int retornaTamanhoArray(){
+    public static int retornaTamanhoArray() {
         return 4;
     }
 
-    public static ArrayList<String> retornaArray(){
+    public static ArrayList<String> retornaArray() {
         final ArrayList<String> question = new ArrayList();
 
         question.add("É verdade que a capital da inglaterra é londres? 1");
@@ -21,11 +21,6 @@ public class Pergunta {
 
         return question;
     }
-
-
-
-
-
 
 
 }

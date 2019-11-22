@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         pergunta = findViewById(R.id.tvPergunta);
         final Intent intent = new Intent(this, telaFinal.class);
         Dados.populaMatriz();
+        Dados.populaControle();
         //startActivity(intent);
         //Exibe oque há no array indice '0'
         pergunta.setText(Pergunta.retornaArray().get(Pergunta.contador));
@@ -34,11 +35,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSwipeBottom() {
                 super.onSwipeBottom();
+                if (Dados.controleRespostas[Pergunta.contador] == false) {
+                    contadorSwaipe++;
+                    Dados.controleRespostas[Pergunta.contador] = true;
+                }
+                Dados.insereResposta(Pergunta.contador, false);
                 if (contadorSwaipe == 5) {
                     startActivity(intent);
                 } else {
-                    contadorSwaipe++;
-                    Dados.insereResposta(Pergunta.contador, false);
+                    onSwipeRight();
                 }
 
 
@@ -47,15 +52,20 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwipeTop() {
-                super.onSwipeTop();
+                super.onSwipeBottom();
+                if (Dados.controleRespostas[Pergunta.contador] == false) {
+                    contadorSwaipe++;
+                    Dados.controleRespostas[Pergunta.contador] = true;
+                }
+                Dados.insereResposta(Pergunta.contador, true);
                 if (contadorSwaipe == 5) {
                     startActivity(intent);
                 } else {
-                    contadorSwaipe++;
-                    Dados.insereResposta(Pergunta.contador, true);
+                    onSwipeRight();
                 }
-            }
 
+
+            }
             @Override
             public void onSwipeLeft() {
                 super.onSwipeLeft();
