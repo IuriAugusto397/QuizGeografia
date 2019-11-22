@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/telaperguntas"
     android:id="@+id/telaToda"
     tools:context=".MainActivity">
 
@@ -12,6 +13,7 @@
         android:layout_width="304dp"
         android:layout_height="96dp"
         android:text=""
+        android:textStyle="bold"
         android:textAlignment="center"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
