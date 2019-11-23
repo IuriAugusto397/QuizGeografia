@@ -1,7 +1,7 @@
 package com.example.quizgeografia;
 
 public class Dados {
-
+    public static int contadorSwaipe = 0;
     public static boolean[][] matriz = new boolean[2][5];
     public static boolean[] controleRespostas = new boolean[5];
 

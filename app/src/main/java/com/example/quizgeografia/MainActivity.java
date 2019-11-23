@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ConstraintLayout tela;
     private TextView pergunta;
-    private int contadorSwaipe = 0;
+
 
 
     @Override
@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
             public void onSwipeBottom() {
                 super.onSwipeBottom();
                 if (Dados.controleRespostas[Pergunta.contador] == false) {
-                    contadorSwaipe++;
+                    Dados.contadorSwaipe++;
                     Dados.controleRespostas[Pergunta.contador] = true;
                 }
                 Dados.insereResposta(Pergunta.contador, false);
-                if (contadorSwaipe == 5) {
+                if (Dados.contadorSwaipe == 5) {
                     startActivity(intent);
                 } else {
                     onSwipeRight();
@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
             public void onSwipeTop() {
                 super.onSwipeBottom();
                 if (Dados.controleRespostas[Pergunta.contador] == false) {
-                    contadorSwaipe++;
+                    Dados.contadorSwaipe++;
                     Dados.controleRespostas[Pergunta.contador] = true;
                 }
                 Dados.insereResposta(Pergunta.contador, true);
-                if (contadorSwaipe == 5) {
+                if (Dados.contadorSwaipe == 5) {
                     startActivity(intent);
                 } else {
                     onSwipeRight();

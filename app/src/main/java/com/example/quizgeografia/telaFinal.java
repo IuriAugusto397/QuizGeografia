@@ -2,10 +2,13 @@ package com.example.quizgeografia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class telaFinal extends AppCompatActivity {
+public class telaFinal extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -15,6 +18,18 @@ public class telaFinal extends AppCompatActivity {
         TextView qtdAcertos;
         qtdAcertos = findViewById(R.id.tvAcertos);
         qtdAcertos.setText(Dados.contaAcertos());
+        Button tentarNovamente = findViewById(R.id.btnRestart);
+        tentarNovamente.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View view) {
+    if(view.getId() == R.id.btnRestart){
+        Dados.populaMatriz();
+        Dados.populaControle();
+        Dados.contadorSwaipe = 0;
+        Intent intent = new Intent(this , MainActivity.class);
+        startActivity(intent);
+    }
     }
 }
