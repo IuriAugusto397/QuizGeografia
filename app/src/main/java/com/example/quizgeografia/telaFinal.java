@@ -28,6 +28,7 @@ public class telaFinal extends AppCompatActivity implements View.OnClickListener
         Dados.populaMatriz();
         Dados.populaControle();
         Dados.contadorSwaipe = 0;
+        Pergunta.contador = 0;
         Intent intent = new Intent(this , MainActivity.class);
         startActivity(intent);
     }
